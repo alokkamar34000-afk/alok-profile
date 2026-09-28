@@ -1,39 +1,231 @@
-meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alok Kumar | Personal Website</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: white;
-            text-align: center;
-        }
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .hero {
-            padding: 100px 20px;
-        }
+  <title>Alok Kumar | Personal Website</title>
 
-        h1 {
-            font-size: 45px;
-            margin-bottom: 10px;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .subtitle {
-            color: #94a3b8;
-            font-size: 20px;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      line-height: 1.6;
+    }
 
-        .about {
-            max-width: 700px;
-            margin: auto;
-            padding: 40px 20px;
-        }
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 20px;
+    }
 
-        .card {
-            background: #1e293b;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 20px;
-        }
+    .hero {
+      max-width: 800px;
+    }
+
+    .profile {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #1e293b;
+      border: 3px solid #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 42px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #94a3b8;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      margin: 5px;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+    }
+
+    section {
+      max-width: 800px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      font-size: 17px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .skill {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #94a3b8;
+      border-top: 1px solid #1e293b;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 38px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      .skills {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="hero">
+
+      <div class="profile">
+        AK
+      </div>
+
+      <h1>Alok Kumar</h1>
+
+      <p class="subtitle">
+        Welcome to my personal website
+      </p>
+
+      <a href="#about" class="btn">About Me</a>
+      <a href="#skills" class="btn">My Skills</a>
+
+    </div>
+  </header>
+
+
+  <section id="about">
+
+    <h2>About Me</h2>
+
+    <div class="card">
+
+      <p>
+        Hello! मेरा नाम Alok Kumar है।
+        यह मेरी personal website है।
+        मैं नई चीजें सीखने और technology के साथ काम करने में interested हूँ।
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills">
+
+      <div class="skill">
+        🌐 Website
+      </div>
+
+      <div class="skill">
+        💻 HTML & CSS
+      </div>
+
+      <div class="skill">
+        📱 Mobile Work
+      </div>
+
+      <div class="skill">
+        🤖 AI & Technology
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2>Contact</h2>
+
+    <div class="card">
+
+      <p>
+        आप मुझसे संपर्क करने के लिए नीचे दिए गए button का इस्तेमाल कर सकते हैं।
+      </p>
+
+      <br>
+
+      <a href="mailto:yourmail@example.com" class="btn">
+        Email Me
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    © 2026 Alok Kumar | All Rights Reserved
+
+  </footer>
+
+</body>
+</html>
