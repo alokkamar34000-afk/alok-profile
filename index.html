@@ -1,44 +1,641 @@
-html>
-<
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AK Accessories</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    color:#111;
+}
+
+header{
+    background:#111;
+    color:white;
+    padding:16px;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.nav{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.cart-btn{
+    background:white;
+    color:#111;
+    border:0;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.hero{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:65px 20px;
+}
+
+.hero h1{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#ddd;
+    margin-bottom:25px;
+}
+
+.shop-btn{
+    background:white;
+    color:#111;
+    padding:13px 22px;
+    border-radius:8px;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 18px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:20px;
+}
+
+.product{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.product img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:15px;
+}
+
+.product h3{
+    margin-bottom:8px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.add-btn{
+    width:100%;
+    border:0;
+    background:#111;
+    color:white;
+    padding:12px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.info-box{
+    background:white;
+    padding:25px;
+    margin-top:25px;
+    border-radius:12px;
+    line-height:1.8;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+    margin-top:30px;
+}
+
+.whatsapp{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    background:#25D366;
+    color:white;
+    padding:14px 18px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* CART */
+
+.cart{
+    position:fixed;
+    right:-400px;
+    top:0;
+    width:350px;
+    max-width:90%;
+    height:100%;
+    background:white;
+    z-index:200;
+    padding:20px;
+    box-shadow:-5px 0 20px rgba(0,0,0,.2);
+    transition:.3s;
+    overflow-y:auto;
+}
+
+.cart.open{
+    right:0;
+}
+
+.cart h2{
+    margin-bottom:20px;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    border-bottom:1px solid #ddd;
+    padding:12px 0;
+}
+
+.close{
+    float:right;
+    border:0;
+    background:#eee;
+    padding:7px 10px;
+    border-radius:5px;
+}
+
+.total{
+    font-size:20px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.order-form input,
+.order-form textarea{
+    width:100%;
+    padding:12px;
+    margin:7px 0;
+    border:1px solid #ccc;
+    border-radius:7px;
+}
+
+.order-btn{
+    width:100%;
+    background:#25D366;
+    color:white;
+    border:0;
+    padding:13px;
+    border-radius:7px;
+    font-size:16px;
+    cursor:pointer;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="hero">
+<header>
+<div class="nav">
 
-      <div class="profile">
-        AK
-      </div>
+<div class="logo">AK Accessories</div>
 
-      <h1>Alok Kumar</h1>
+<button class="cart-btn" onclick="openCart()">
+🛒 Cart (<span id="cartCount">0</span>)
+</button>
 
-      <p class="subtitle">
-        Welcome to my personal website
-      </p>
-
-      <a href="#about" class="btn">About Me</a>
-      <a href="#skills" class="btn">My Skills</a>
-
-    </div>
-  </header>
+</div>
+</header>
 
 
-  <section id="about">
+<section class="hero">
 
-    <h2>About Me</h2>
+<h1>AK Accessories</h1>
 
-    <div class="card">
+<p>Mobile Accessories at the Right Price</p>
 
-      <p>
-        Hello! मेरा नाम Alok Kumar है।
-        यह मेरी personal website है।
-        मैं नई चीजें सीखने और technology के साथ काम करने में interested हूँ।
-      </p>
+<a href="#products" class="shop-btn">
+Shop Now
+</a>
 
-    </div>
-
-  </section>
+</section>
 
 
-  
+<section class="container" id="products">
+
+<h2 class="section-title">
+Our Products
+</h2>
+
+<div class="products">
+
+
+<!-- PRODUCT 1 -->
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0">
+
+<div class="product-info">
+
+<h3>Fast Charger</h3>
+
+<div class="price">₹499</div>
+
+<p>Fast charging mobile charger.</p>
+
+<br>
+
+<button class="add-btn"
+onclick="addToCart('Fast Charger',499)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 2 -->
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1591290619762-c5887b1b0f2f">
+
+<div class="product-info">
+
+<h3>USB Cable</h3>
+
+<div class="price">₹199</div>
+
+<p>Durable charging cable.</p>
+
+<br>
+
+<button class="add-btn"
+onclick="addToCart('USB Cable',199)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1">
+
+<div class="product-info">
+
+<h3>Wireless Earbuds</h3>
+
+<div class="price">₹899</div>
+
+<p>Wireless Bluetooth earbuds.</p>
+
+<br>
+
+<button class="add-btn"
+onclick="addToCart('Wireless Earbuds',899)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 4 -->
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1609592424847-1e6f3e9a3f07">
+
+<div class="product-info">
+
+<h3>Mobile Cover</h3>
+
+<div class="price">₹249</div>
+
+<p>Premium protective mobile cover.</p>
+
+<br>
+
+<button class="add-btn"
+onclick="addToCart('Mobile Cover',249)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+</div>
+</section>
+
+
+<section class="container">
+
+<div class="info-box">
+
+<h2>🚚 Delivery</h2>
+
+<p>
+Orders are shipped within 1–3 working days.
+Delivery time depends on your location.
+</p>
+
+<br>
+
+<h2>↩️ Return Policy</h2>
+
+<p>
+Products can be returned according to our return policy.
+Please contact us before returning any product.
+</p>
+
+<br>
+
+<h2>📞 Contact</h2>
+
+<p>
+WhatsApp: +91 XXXXXXXXXX
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 AK Accessories</p>
+
+<p>Mobile Accessories Store</p>
+
+</footer>
+
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+<button class="close" onclick="closeCart()">✕</button>
+
+<h2>🛒 Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<div class="total">
+Total: ₹<span id="total">0</span>
+</div>
+
+
+<div class="order-form">
+
+<h3>Order Details</h3>
+
+<input
+type="text"
+id="customerName"
+placeholder="आपका नाम"
+>
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="Mobile Number"
+>
+
+<textarea
+id="customerAddress"
+placeholder="पूरा Delivery Address"
+rows="4">
+</textarea>
+
+<br>
+
+<button class="order-btn"
+onclick="placeOrder()">
+
+📱 Order on WhatsApp
+
+</button>
+
+</div>
+
+</div>
+
+
+<a
+class="whatsapp"
+href="https://wa.me/91XXXXXXXXXX"
+target="_blank">
+
+💬 WhatsApp
+
+</a>
+
+
+<script>
+
+let cart = [];
+
+function addToCart(name,price){
+
+    cart.push({
+        name:name,
+        price:price
+    });
+
+    updateCart();
+
+    alert(name + " cart में add हो गया");
+
+}
+
+
+function updateCart(){
+
+    document.getElementById("cartCount").innerText =
+        cart.length;
+
+    let html = "";
+    let total = 0;
+
+    cart.forEach((item,index)=>{
+
+        total += item.price;
+
+        html += `
+        <div class="cart-item">
+
+        <div>
+        <b>${item.name}</b><br>
+        ₹${item.price}
+        </div>
+
+        <button onclick="removeItem(${index})">
+        ❌
+        </button>
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById("cartItems").innerHTML = html;
+
+    document.getElementById("total").innerText = total;
+
+}
+
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+
+}
+
+
+function openCart(){
+
+    document.getElementById("cart")
+    .classList.add("open");
+
+}
+
+
+function closeCart(){
+
+    document.getElementById("cart")
+    .classList.remove("open");
+
+}
+
+
+function placeOrder(){
+
+    if(cart.length === 0){
+
+        alert("पहले कोई product cart में add करें");
+
+        return;
+    }
+
+
+    let name =
+        document.getElementById("customerName").value;
+
+    let phone =
+        document.getElementById("customerPhone").value;
+
+    let address =
+        document.getElementById("customerAddress").value;
+
+
+    if(!name || !phone || !address){
+
+        alert("कृपया सभी details भरें");
+
+        return;
+    }
+
+
+    let message =
+        "🛍️ AK Accessories Order%0A%0A";
+
+    message +=
+        "👤 Name: " + name + "%0A";
+
+    message +=
+        "📞 Phone: " + phone + "%0A";
+
+    message +=
+        "📍 Address: " + address + "%0A%0A";
+
+
+    message += "📦 Products:%0A";
+
+
+    let total = 0;
+
+
+    cart.forEach(item=>{
+
+        message +=
+            "• " +
+            item.name +
+            " - ₹" +
+            item.price +
+            "%0A";
+
+        total += item.price;
+
+    });
+
+
+    message +=
+        "%0A💰 Total: ₹" + total;
+
+    message +=
+        "%0A%0A💳 Payment: Cash on Delivery";
+
+
+    /* अपना WhatsApp नंबर यहाँ डालें */
+
+    let whatsappNumber =
+        "91XXXXXXXXXX";
+
+
+    let url =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        message;
+
+
+    window.open(url,"_blank");
+
+}
+
+</script>
+
+</body>
+</html>
